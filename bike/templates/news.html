@@ -1,0 +1,34 @@
+{% extends "welcome.html" %}
+
+{% block js %}
+
+{% endblock %}
+
+{% block menu %}
+<li><a href="/">Home</a></li>
+<li><a href="/news/" id="current">News</a></li>
+<li><a href="/stations/">Stations</a></li>
+<li><a href="/brainstorming/">Brainstorming</a></li>
+<li><a href="/get_involved/">Make it real</a></li>
+{% endblock %}
+
+{% block content %}
+
+<div class="news">
+
+  <div class="ideasdetails">
+    created by
+    <a class="creator" href="/user?username={{ idea.creator }}" title="see all contributions by: {{ idea.creator }}">{{ idea.creator }}</a> on {{ idea.when }} <br/>
+    <a href="/idea?id={{idea.id}}"><span class="titlecomment">comments:</span></a> {{ idea.nbcomments }} ; 
+    {% if idea.pict %}
+    <a class="pictinfo" href="/idea?id={{idea.id}}">picture</a>
+    {% endif %}
+<br/>
+  </div>
+
+</div>
+
+{% endblock %}
+
+
+

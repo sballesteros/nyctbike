@@ -1,0 +1,31 @@
+<a class="creator" href="/user?username={{ comment.creator }}" title="see all contributions by: {{ comment.creator }}">{{ comment.creator }}</a><span class="ondate">, on:{{ comment.when }} </span><br/>
+
+<!--vote: send POST data because side effects-->
+<div class="encompass_vote_suppot">
+  <span class="vote">vote:</span>
+  <form id="form_votecomment_like_{{ comment.id }}" action="" method="post"> <!--action is "/vote_comment/" if not ajax-->
+    <input type="hidden" name="idcomment" value="{{ comment.id }}"/>
+    <input type="hidden" name="type" value="like"/>
+    <input type="button" value="+ :{{ comment.like }}" class="like" title="like"/> <!--type has to be button and not submit as the POST is done by ajax-->
+  </form>
+
+  <form id="form_votecomment_dontcare_{{ comment.id }}" action="" method="post"> <!--action is "/vote_comment/" if not ajax-->
+    <input type="hidden" name="idcomment" value="{{ comment.id }}"/>
+    <input type="hidden" name="type" value="dontcare"/>
+    <input type="button" value="= :{{ comment.dontcare }}" class="dontcare" title="don't care"/>
+  </form>
+
+
+  <form id="form_votecomment_dontlike_{{ comment.id }}" action="" method="post"> <!--action is "/vote_comment/" if not ajax-->
+    <input type="hidden" name="idcomment" value="{{ comment.id }}"/>
+    <input type="hidden" name="type" value="dontlike"/>
+    <input type="button" value="- :{{ comment.dontlike }}" class="dontlike" title="don't like"/>
+  </form>    
+  <span class="level2idea_{{ comment.id }}" style="color:red; font-size:9pt;"></span> <!--already voted-->
+</div>
+<br/>
+
+<p>
+  {{ comment.content|linebreaks }}
+</p>
+

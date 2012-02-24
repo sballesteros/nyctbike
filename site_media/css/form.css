@@ -1,0 +1,43 @@
+form
+{
+    font-family: Arial, Times, sans-serif;
+    font-size:10pt;
+    color: rgb(199, 199, 199);
+}
+
+input
+{
+    background-color: black;
+    color: rgb(199, 199, 199);
+}
+
+textarea
+{
+    background-color: black;
+    color: rgb(199, 199, 199);
+}
+
+td
+{
+    color: rgb(199, 199, 199);
+}
+
+.errors
+{
+    color: red;
+}
+
+.errorlist
+{
+    color: red;
+}
+
+#id_honeypot
+{
+    display:none;
+}
+
+label[for="id_honeypot"] 
+{
+ display:none; 
+}

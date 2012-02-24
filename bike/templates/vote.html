@@ -1,0 +1,29 @@
+<span class="vote">vote: </span>
+<!--vote: send POST data because side effects-->
+<form action="" method="post">{% csrf_token %}  <!--action is "/vote_station/" if not ajax-->
+  <input type="hidden" name="idobject" value="{{ object.id }}"/>
+  <input type="hidden" name="vote" value="L"/>
+  <input type="button" value="+ :{{ object.like }}" class="like" title="like"/> <!--type has to be button and not submit as the POST is done by ajax-->
+</form>
+
+<form action="" method="post">{% csrf_token %}  <!--action is "/vote_station/" if not ajax-->
+  <input type="hidden" name="idobject" value="{{ object.id }}"/>
+  <input type="hidden" name="vote" value="C"/>
+  <input type="button" value="= :{{ object.dontcare }}" class="dontcare" title="don't care"/>
+</form>
+
+<form action="" method="post">{% csrf_token %}  <!--action is "/vote_station/" if not ajax-->
+  <input type="hidden" name="idobject" value="{{ object.id }}"/>
+  <input type="hidden" name="vote" value="D"/>
+  <input type="button" value="- :{{ object.dontlike }}" class="dontlike" title="don't like"/>
+</form>
+
+<!--support-->
+<div class="button_support">
+  <form action="/support{{ type }}/" method="get">
+    <input type="hidden" name="idobject" value="{{ object.id }}"/>
+    <input type="submit" value="support: {{ object.nbsupports }}" class="support" title="Give support"/>
+  </form>
+</div>
+
+

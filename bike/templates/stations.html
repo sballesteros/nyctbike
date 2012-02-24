@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block css %}
+<link rel="stylesheet" media="screen" type="text/css" title="Design espace" href="{{ MEDIA_URL }}css/form.css" />  
+{% endblock %}
+
+{% block googlemap %}
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="{{ MEDIA_URL }}js/mapit.js"></script>
+<script type="text/javascript" src="{{ MEDIA_URL }}js/all_stations.js"></script>
+{% endblock %}
+
+
+{% block content %}
+
+<div id="map_canvas"></div>
+
+
+<p>click on a marker on the map to display info/rate/comment a station</p>
+<a class="add_station" href="/submitstation">Submit your own stations</a>
+
+<p id="ajax">
+
+<p>
+
+{% endblock %}
+

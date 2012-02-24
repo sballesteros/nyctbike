@@ -1,0 +1,79 @@
+h1
+{
+    font-size:16pt;
+    margin-bottom:20px;
+    color: rgb(199, 199, 199);
+}
+
+#username_for_mapit{
+    font-weight:bold;
+    font-size: 20pt;
+}
+
+
+.myuser
+{
+    font-weight:bold;
+//    font-size: 12pt;
+}
+
+
+h2{
+    margin-bottom:0px;
+}
+
+#frame
+{
+    margin: 0px auto;
+    width: 1000px;
+}
+
+
+.line{
+    float:left;
+    width:1000px;
+}
+
+
+#my_stations, #my_designstations
+{
+    border: 1px solid rgb(96,96,96);
+    float: left;
+    margin: 0px auto;
+    width:480px;
+    height:300px;
+    color: rgb(199, 199, 199);
+    opacity: 1;
+    margin-bottom:30px;
+}
+
+#map_canvas
+{
+    margin-left: 20px;
+    width:440px; 
+    height:250px;
+}
+
+#my_ideas, #my_designbikes
+{
+    border: 1px solid rgb(96,96,96);
+    float: right;
+    margin: 0px auto;
+    width:480px;
+    height:300px;
+    color: rgb(199, 199, 199);
+    opacity: 1;
+    margin-bottom:30px;
+}
+
+#my_ideas_box, #my_designstations_box, #my_designbikes_box
+{
+    width:440px;
+    height:240px;
+    margin: 20px auto;
+    color: rgb(199, 199, 199);
+    opacity: 1;
+    overflow-y: auto;
+}
+
+

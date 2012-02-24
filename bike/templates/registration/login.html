@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block js %}
+
+{% endblock %}
+
+
+{% block css %}
+<link rel="stylesheet" media="screen" type="text/css" title="Design espace" href="{{ MEDIA_URL }}css/registration.css" />
+{% endblock %}
+
+
+{% block content %}
+
+
+
+
+<div id="gears">
+
+  <img src="{{ MEDIA_URL }}pict/gears.png" alt="bikes and butterflies"/>
+as
+</div>
+
+
+<div class="gearsregistration">
+
+  <p class="registration">Log in</p>
+
+  {% if form.errors %}
+  <p class="errors">Sorry, that's not a valid username or password</p>
+  {% endif %}
+
+  <form action="" method="post">{% csrf_token %}
+    <table>
+      <tr>
+	<td>User name:</td>
+	<td><input type="text" name="username" value="" id="username"/></td>
+      </tr>
+      <tr>
+	<td>Password:</td>
+	<td> <input type="password" name="password" value="" id="password"/></td>
+      </tr>
+      <tr>
+	<td></td>
+	<td><input type="submit" value="login" /></td>
+      </tr>
+      <!--  <input type="hidden" name="next" value="" /> -->
+      <!--redirect to welcome after loggin here we use another technic by
+	  using a query string containing a next parameter-->
+    </table>
+
+  </form>
+
+
+  <p>
+    Not a member yet, <a href="/registration/register/">register in 5 seconds</a>
+  </p>
+
+</div>
+
+
+
+
+{% endblock %}

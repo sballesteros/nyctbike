@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block css %}
+<link rel="stylesheet" media="screen" type="text/css" title="Design espace" href="{{ MEDIA_URL }}css/form.css" />   
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"> </script>
+{% if need_all %}
+<script type="text/javascript" src="{{ MEDIA_URL }}js/profile.js"> </script>
+{% endif %}
+<script type="text/javascript" src="{{ MEDIA_URL }}js/vote.js"> </script>
+{% endblock %}
+
+{% block content %}
+
+<h2><span id="username_for_mapit">{{ user.username}}</span>: 
+  {% if need_all %}<span id="remove_me">edit </span>{% endif %}your profile</h2>
+
+{% if need_all %}
+<p class="alert">You need to complete your full profile to be able to submit/support ideas.</p>
+{% endif %}
+
+
+<p>
+  <div id="myactions">
+    <a class="add_station" href="/submitstation?next=/stations">Submit a stations</a>
+    <a class="add_designstation" href="/submitdesignstation?next=/designstations">Submit a station Design</a>
+    <a class="add_designbike" href="/submitdesignbike?next=/designbikes">Submit a bike Design</a>
+    <a class="add_idea" href="/submitidea?next=/ideas">Submit an idea</a>
+  </div>
+</p>
+
+
+<form id="form_profile" action="/form_profile_ajax/" method="post"> <!--POST via Ajax-->
+
+  <div id="replace_profile">
+    <table id="wtf">
+      {{ form.as_table }}
+    </table>
+  </div>
+  
+  {% if need_all %}	 
+  <input id="button_save_profile" type="button"  value="Save" style="float:left;">   <!--POST via Ajax-->
+  {% endif %}
+</form>
+
+<div id="error_profile"  style="float:left; margin-left:10px; font-size:10pt; color:red;"> </div>
+
+{% endblock %}

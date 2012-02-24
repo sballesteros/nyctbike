@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block css %}
+<link rel="stylesheet" media="screen" type="text/css" title="Design espace" href="{{ MEDIA_URL }}css/form.css" />
+<link rel="stylesheet" media="screen" type="text/css" title="Design espace" href="{{ MEDIA_URL }}css/brainstorming.css" />
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="{{ MEDIA_URL }}js/vote.js"></script>
+{% endblock %}
+
+{% block content %}
+
+<h1>
+  Submitted {% if type == 'designstation' %} station {% else %} bike {% endif %} designs.
+</h1>
+
+<p>
+  <a href="/submit{{ type }}" class="add_{{ type }}">Submit a new {% if type == 'designstation' %} station {% else %} bike {% endif %} design</a>
+</p>
+
+{% for object in mydesigns  %}
+{% include 'display.html' %}
+{% endfor %}
+
+{% endblock %}
+

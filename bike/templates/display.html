@@ -1,0 +1,77 @@
+{% load comments %}
+
+<div class="ideas">
+
+  {% load comments %}
+
+  {% if type == 'idea' %}
+  <img src="{{ MEDIA_URL }}pict/jenbike_{{ object.category }}.png" alt="pict" title="category:{{ object.get_category_display }}"/>
+  {% endif %}
+  <a href="/{{ type }}?id={{object.id}}"><span class="ideatitle">{{ object.name }}</span></a> <br/>
+  
+  <div class="ideasdetails">
+    
+    created by
+    <a class="creator" href="/user?username={{ object.creator }}" title="see all contributions by: {{ object.creator }}">{{ object.creator }}</a> on {{ object.when }} <br/>
+    <a href="/{{ type }}?id={{object.id}}"><span class="titlecomment">comments:</span></a> {% get_comment_count for object as comment_count %}  {{ comment_count }} ; 
+    
+    
+    {% if object.pict %}
+    <a class="pictinfo" href="/{{ type }}?id={{object.id}}">picture</a>
+    {% endif %}
+    
+    <br/>
+    
+    <!--vote: send POST data because side effects-->
+    <div class="vote_{{ type }}_ajax">
+      {% include 'vote.html' %}
+      <span class="{{ type }}_{{ object.id }}" style="color:red; font-size:9pt;"></span><!--already voted-->
+    </div>    
+
+  </div>
+
+  <br/>
+  
+  
+  {% if display_content %}
+  <p>{{ object.description|linebreaks }}</p>
+  
+  
+  {% if object.pict %}
+  <div class="pict">
+    <a href="{{ MEDIA_URL }}{{ object.pict.name }}">
+      <img src="{{ MEDIA_URL }}{{ object.pict.name }}" alt="pict"/>
+    </a>
+  </div>
+  {% endif %}
+  
+  {% endif %}
+
+  {% if display_comments %}
+  <p>
+    <a href="/submitcomment{{ type }}?id={{myid}}&next=/{{ type }}?id={{myid}}"
+       class="add_comment">add a comment</a> <br/> {% if  object.nbcomments  > 0 %} Comments: {% endif %}
+  </p>
+  
+
+  {% get_comment_list for object as comment_list  %}
+  {% for comment in comment_list reversed %}
+  
+  <a class="creator" href="/user?username={{ comment.user.user_name }}" title="see all contributions by: {{ comment.user.username }}">{{ comment.user.username }}</a><span class="ondate">, on:{{ comment.submit_date }} </span><br/>
+  
+  <p>
+    {{ comment.comment|linebreaks }}
+  </p>
+  
+  
+  {% endfor %}
+  
+  {% endif %}
+  
+  
+
+</div>
+
+
+
+

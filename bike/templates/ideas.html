@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block css %}
+<link rel="stylesheet" media="screen" type="text/css" title="Design espace" href="{{ MEDIA_URL }}css/form.css" />
+<link rel="stylesheet" media="screen" type="text/css" title="Design espace" href="{{ MEDIA_URL }}css/brainstorming.css" />
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="{{ MEDIA_URL }}js/vote.js"></script>
+{% endblock %}
+
+{% block content %}
+
+<h1>
+Submitted ideas per categories
+<img src="{{ MEDIA_URL }}pict/jenbike_B.png" alt="pict" title="category: Bike station design"/>
+<img src="{{ MEDIA_URL }}pict/jenbike_W.png" alt="pict" title="category: Bike and bikes maintenance"/>
+<img src="{{ MEDIA_URL }}pict/jenbike_F.png" alt="pict" title="category: Inovative financing"/>
+<img src="{{ MEDIA_URL }}pict/jenbike_O.png" alt="pict" title="category: Other (website/mobile apps improvement...)"/>
+</h1>
+
+<p>
+  <a href="/submitidea?next=/ideas" class="add_idea">Submit a new idea</a>
+</p>
+
+<div class="line">
+
+  <div id="cat_maintenance">
+    <h2>Bikes Maintenance</h2>
+
+    <div id="cat_maintenance_box">
+      {% for type, values in idea_list_B.items  %}
+      {% for object in values  %}
+      {% include 'display.html' %}
+      {% endfor %}
+      {% endfor %}
+    </div>
+
+  </div>
+
+  <div id="cat_finance">
+    <h2>Inovative financing</h2>
+
+
+    <div id="cat_finance_box">
+      {% for type, values in idea_list_F.items  %}
+      {% for object in values  %}
+      {% include 'display.html' %}
+      {% endfor %}
+      {% endfor %}
+    </div>
+
+  </div>
+
+</div>
+
+<div class="line">
+
+  <div id="cat_website">
+    <h2>Participative tools (website, mobile apps...)</h2>
+
+    <div id="cat_website_box">
+      {% for type, values in idea_list_W.items  %}
+      {% for object in values  %}
+      {% include 'display.html' %}
+      {% endfor %}
+      {% endfor %}
+    </div>
+
+  </div>
+
+
+  <div id="cat_other">
+    <h2>Other...</h2>
+
+    <div id="cat_other_box">
+      {% for type, values in idea_list_O.items  %}
+      {% for object in values  %}
+      {% include 'display.html' %}
+      {% endfor %}
+      {% endfor %}
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock %}
+

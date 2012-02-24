@@ -1,0 +1,225 @@
+{% extends "base.html" %}
+
+{% block menu %}
+
+{% endblock %}
+
+
+<link type="text/css" href="{{ MEDIA_URL }}js/ui/css/custom-theme/jquery-ui-1.8.15.custom.css" rel="stylesheet" />
+
+{% block js %}
+<script type="text/javascript" src="{{ MEDIA_URL }}js/ui/js/jquery-ui-1.8.15.custom.min.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"> </script>
+<script type="text/javascript" src="{{ MEDIA_URL }}js/mapit.js"></script>
+<script type="text/javascript" src="{{ MEDIA_URL }}js/latest_stations.js"></script>
+<script type="text/javascript" src="{{ MEDIA_URL }}js/get_involved.js"></script>
+<script>
+  $(function() {
+  $( "#accordion" ).accordion();
+  });
+</script>
+{% endblock %}
+
+
+
+
+{% block content %}
+<div id="intro">
+
+
+
+  <div id="image">
+
+    <img src="{{ MEDIA_URL }}pict/butterflies.jpg" alt="bikes and butterflies"/>
+
+  </div>
+
+
+  <div id="site">
+
+
+    <div id="accordion">
+
+      <h3><a href="#">Bike sharing will happen in NYC</a></h3>
+      <div id="site_box">
+
+	<p>
+	  See <a href="http://www.nyc.gov/html/dot/html/bicyclists/bikeshare.shtml">here</a> for a great case study.
+	  <a href="http://www.nyc.gov/html/dot/html/home/home.shtml">DOT</a> anticipates the system would start in spring of 2012.
+
+	</p>
+
+	<h1>Let's make it New York city way</h1>
+
+	<p>
+	  A bike sharing system is awesome and we intend to make it even better by plugging in the power of the community.
+	</p>
+
+
+	<!--<h1>Crowdsourcing to assist the design of a smart, esthetical and rooted in the past bikesharing system</h1>-->
+
+	<h1> Get involved right now!</h1>
+
+	<ul>
+	  <li><span class="people">Citizen, visitors</span> place the stations where you need them. Share your ideas.</li>
+	  <li><span class="people">Artists or designers</span>, take the opportunity to bring art back to the streets of NY. A bike sharing system means a lot of bike stations. Help us to design the space and create the greatest live outdoor museum of the world.</li>
+	  <li><span class="people">Companies, fundations</span>, take the oportunity to make it real and invent new participative economic developement.</li>
+	  <li><span class="people">Bike specialists</span>, give your idea of the ideal bike for such a system or invent a new kind of maintenance system.</li>
+	  <li><span class="people">Historian</span>, help us to retrace the history of bicycle in Manhattan to root this new system.</li>
+	  <li><span class="people">Botanists</span>, make it green.</li>
+	  <!--<li><span class="people">Developers</span>, NYCTBike in an open source project so contribute to the code and let's develop the participative tools of tomorrow.</li>-->
+	</ul>
+
+      </div>
+      <h3><a href="#">Latest news</a></h3>
+      <div>
+	<div id="news_box">
+	  
+	  {% if news %}
+	  {% for n in news %}
+
+	  <p>{{ n.title }}, on {{ n.when }}</p>
+	  <p>
+	    {{ n.content }}
+	  </p>
+	  {% endfor %}
+
+	  {% else %}
+
+	  <p>
+	    Be carefull, this website is not ready for production yet!
+	    If you try it, keep in mind that we might delete all submitted data at any time.
+	    However, your experience is valuable for us and we would be pleased to hear about any bugs or suggestions of improvements.
+	  </p>
+
+	  <p>Sincerly, the NYCT Bike team.</p>
+
+	  {% endif %}
+
+	</div>	
+      </div>
+    </div>
+
+  </div> <!-- site-->
+
+
+</div> <!-- intro-->
+
+
+
+<div id="participate">
+
+  <div id="place_station">
+
+    <h1>Place your stations</h1>
+
+    <p>
+      <a href="/submitstation">Submit your own stations now</a> or on
+      the go with our smartphone app! <br/>
+      <a href="/stations">View</a> all submitted stations.
+    </p>
+    
+    <h2>Latest station submitted</h2>
+
+    <div id="map_station"></div>
+
+
+    {% comment %}
+    {% for object in station_list %}
+    {% include 'display_station.html' %}
+    {% endfor %}
+    {% endcomment %}
+
+  </div> <!--place_station-->
+
+  <div id="space">
+    <h1>Styling the space</h1>
+
+
+
+    <p>
+      Keep the city eleguant and <a href="/submitdesignstation">design</a> NYC bike stations
+    </p>
+    <p>
+      or,
+      <a href="/designstations">view / comments / rate / support</a> previously designed stations.
+    </p>
+
+  </div> 
+
+  <div id="bike">
+    <h1>Ideal Bike</h1>
+
+    <p>
+      <a href="/submitdesignbike">Share your vision</a> of the ideal bike for NYC
+    </p>
+    <p>
+      or,
+      <a href="/designbikes">view / comments / rate / support</a> previously submitted bikes.
+    </p>    
+
+
+  </div>
+
+  <div id="ideas">
+    <h1>Brainstorming</h1>
+
+    <p>
+      <a href="/submitidea">Submit</a>  your own ideas/materials using 4 categories:
+    </p>
+    <ul>
+      <li>Bikes Maintenance</li>
+      <li>Inovative financing</li>
+      <li>Participative tools (website, mobile apps...)</li>
+      <li>Other...</li>
+    </ul>
+    <p>
+      or,
+      <a href="/ideas">view/comments</a> previously posted material.
+    </p>
+    
+
+    {% comment %}
+    <h2>Latest submitted idea</h2>
+
+    {% for idea in idea_list %}
+    {% include 'display_idea.html' %}
+    {% endfor %}
+    {% endcomment %}
+
+  </div>  <!--idea-->
+
+
+  <div id="companies">
+    <h1>Make it real</h1>
+
+    <p>Support art project, offers your company an unique source of
+      advertising or just show your support</p>
+
+    <ul>
+      <li>Support 
+	<ul>
+	  <li><a href="/ideas/">ideas</a></li> 
+	  <li><a href="/designstations/">station designs</a></li>
+	  <li><a href="/designbikes"> bike designs</a></li>
+	</ul>
+      </li>
+      <li>Finance the <a href="/stations/">stations</a> located by the users.</li>
+    </ul>
+
+
+    {% comment %}
+    <h2>Latest supported idea (<a href="/get_involved/">view all</a>)</h2>
+    {% for support in support_list %}
+    {% include 'display_support.html' %}
+    {% endfor %}
+    {% endcomment %}
+
+  </div>  <!--companies-->
+
+
+
+</div>  <!--participate-->
+
+{% endblock %}
+

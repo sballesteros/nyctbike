@@ -1,0 +1,71 @@
+#navsite p {
+    display: none; 
+}
+
+#navsite ul {
+    width: 100%;
+    float: left; 
+    padding: 0;
+    margin-left: 0;
+    font: bold 12px Arial, Verdana, sans-serif;
+}
+
+#navsite ul li { 
+    list-style: none; 
+    margin: 0; 
+    float: left;
+}
+
+#navsite ul li a { 
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 2px;
+    margin-left: 3px; 
+    border: 1px solid black;
+    border-bottom: none; 
+    background-color: rgb(96, 96, 96); 
+    text-decoration: none; 
+    display: block;
+    width: 154px; 
+}
+
+#navsite ul li a:link {
+    color: rgb(199, 199, 199);
+}
+
+#navsite ul li a:visited {
+    color: rgb(199, 199, 199); 
+}
+
+#navsite ul li a:link:hover, #navsite ul li a:visited:hover {
+    background-color: rgb(254,200,48);
+//    border-bottom: 1px solid black;
+}
+
+#navsite ul li a#current { 
+    background-color: black;
+    border-top: 1px solid rgb(254,200,48);
+    border-left: 1px solid rgb(254,200,48);
+    border-right: 1px solid rgb(254,200,48);
+    border-bottom: 1px solid black;
+}
+
+#navsite ul li a#current:hover { 
+    color: rgb(254,200,48);
+}
+ 
+.clearfix:after {
+    content: "."; 
+    display: block; 
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+/* for IE6 */
+* html .clearfix {
+    height: 1%; 
+}
+/* for IE7 */ 
+*:first-child+html .clearfix {
+    min-height: 1px;
+}

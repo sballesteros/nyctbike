@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block css %}
+<link rel="stylesheet" media="screen" type="text/css" title="Design espace" href="{{ MEDIA_URL }}css/form.css" />   
+<link rel="stylesheet" media="screen" type="text/css" title="Design espace" href="{{ MEDIA_URL }}css/user.css" />
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"> </script>
+<script type="text/javascript" src="{{ MEDIA_URL }}js/vote.js"> </script>
+
+{% if myStations.station %} <!--supported_station doesn't support 0 stations -->
+<script type="text/javascript" src="{{ MEDIA_URL }}js/mapit.js"></script>
+<script type="text/javascript" src="{{ MEDIA_URL }}js/supported_stations.js"></script>
+<script type="text/javascript" src="{{ MEDIA_URL }}js/get_involved.js"></script>
+{% endif %}
+
+{% endblock %}
+
+
+{% block content %}
+
+<h1>Make it real</h1>
+
+
+<div class="line">
+
+  <div id="my_stations">
+    <h2>Supported stations</h2>
+
+    {% if myStations.station %} <!--supported_station doesn't support 0 stations -->
+    <div id="map_canvas"></div>
+    {% else %}
+    <p>No stations has been supported yet</p>
+    {% endif %}
+  </div>
+
+
+  <div id="my_ideas">
+    <h2>Supported ideas</h2>
+
+
+    <div id="my_ideas_box">
+      {% for type, values in myIdeas.items  %}
+      {% for object in values  %}
+      {% include 'display.html' %}
+      {% endfor %}
+      {% endfor %}
+    </div>
+
+  </div>
+
+
+</div>
+
+<div class="line">
+
+  <div id="my_designstations">
+    <h2>Supported stations design</h2>
+
+
+    <div id="my_designstations_box">
+      {% for type, values in myDesignStations.items  %}
+      {% for object in values  %}
+      {% include 'display.html' %}
+      {% endfor %}
+      {% endfor %}
+    </div>
+
+  </div>
+
+
+  <div id="my_designbikes">
+    <h2>Supported bikes design</h2>
+
+
+    <div id="my_designbikes_box">
+      {% for type, values in myDesignBikes.items  %}
+      {% for object in values  %}
+      {% include 'display.html' %}
+      {% endfor %}
+      {% endfor %}
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock %}

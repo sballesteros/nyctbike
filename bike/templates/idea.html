@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block js %}
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+<!--<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery-1.4.4.min.js"></script>-->
+<script type="text/javascript" src="{{ MEDIA_URL }}js/vote.js"></script>
+{% endblock %}
+
+
+{% block content %}
+
+<h2> Details and comments for:</h2>
+ 
+{% for type, values in object_list.items  %}
+
+{% for object in values  %}
+{% include 'display.html' %}
+{% endfor %}
+{% endfor %}
+
+
+{% endblock %}
+

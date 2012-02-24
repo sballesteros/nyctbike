@@ -1,0 +1,22 @@
+{% extends "welcome.html" %}
+
+
+{% block js %}
+
+{% endblock %}
+
+
+{% block menu %}
+<li><a href="/welcome">Home</a></li>
+<li><a href="/news/">News</a></li>
+<li><a href="/stations/">Stations</a></li>
+<li><a href="/brainstorming/"  id="current">Brainstorming</a></li>
+</li> <li><a href="/get_involved/">Get involved</a></li>
+{% endblock %}
+
+
+{% block content %}
+
+<p>You already voted "{{ what }}" on {{ when }} </p>
+
+{% endblock %}

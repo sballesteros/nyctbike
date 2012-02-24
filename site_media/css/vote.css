@@ -1,0 +1,52 @@
+.like, .dontcare, .dontlike, .support
+{
+    border: 1px solid rgb(96, 96, 96);   
+    float: left; 
+    font-size:6pt;
+}
+
+.like:hover, .support:hover
+{
+    border: 1px solid rgb(96, 96, 96);   
+    float: left; 
+    font-size:6pt;
+    background-color:rgb(0, 118, 45);
+}
+.dontcare:hover
+{
+    border: 1px solid rgb(96, 96, 96);   
+    float: left; 
+    font-size:6pt;
+    background-color:rgb(21,107,179);
+}
+.dontlike:hover
+{
+    border: 1px solid rgb(96, 96, 96);   
+    float: left; 
+    font-size:6pt;
+    background-color:rgb(228,0,18);
+}
+
+.encompass_vote_suppot
+{
+    float:left;
+    width:350px;
+}
+
+.buttons_vote
+{
+    float:left;
+    width:150px;
+}
+
+.button_support
+{
+    float:right;
+    width:150px;
+}
+
+.vote{
+    color: rgb(199, 199, 199);
+    float: left; 
+    font-size:8pt;
+}

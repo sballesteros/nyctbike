@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block css %}
+<link rel="stylesheet" media="screen" type="text/css" title="Design espace" href="{{ MEDIA_URL }}css/form.css" />   
+{% endblock %}
+
+
+{% block js %}
+
+{% endblock %}
+
+{% block content %}
+
+
+<h2>Add your contribution</h2>
+
+{% if form.errors %} 
+<p class="errors">
+  Please correct the error{{ form.errors|pluralize }} below.
+</p>
+{% endif %}
+
+<form enctype="multipart/form-data" action="" method="post">{% csrf_token %}
+  <table>
+    <tr><th>Creator:</th> <td>{{ me }}</td></tr>       
+    {{ form.as_table }}
+  </table>
+  <input type="submit" value="Submit*">
+</form>
+
+
+<div class="design_contributor_agreement">
+  <h2>* <a href="http://www.nyctbike.com">nyctbike</a> designer contributor agreement:</h2>
+
+  <p>By clicking on the "submit" button I assign to nyctbike.com
+    with full title guarantee all copyright now or in the future
+    of the submited design and related informations
+    (hereafter refer to as "data"). I grant
+    to <a href="http://www.nyctbike.com">nyctbike</a> and its
+    associated members a world-wide, exclusive, royalty-free and
+    perpetual licence to use, copy, modify, communicate and make
+    available to the public (including without limitation via the
+    Internet) and distribute in an original or modified form these
+    submitted data as they wish.</p>
+
+</div>
+
+
+
+{% endblock %}

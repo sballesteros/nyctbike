@@ -1,0 +1,301 @@
+.add{
+    border: 1px solid rgb(96, 96, 96);   
+    color:black;
+    background-color: rgb(21,107,179);
+    text-decoration:none;
+    font-size: 10pt;
+}
+
+.add2{
+    border: 1px solid rgb(96, 96, 96);   
+    color:black;
+    background-color: rgb(0, 118, 45);
+    text-decoration:none;
+    font-size: 10pt;
+}
+
+.back{
+    font-size: 10pt;
+    border: 1px solid rgb(96, 96, 96);   
+    color:black;
+    background-color: rgb(136,0,96);
+    text-decoration:none;
+}
+
+
+
+.add_comment{
+    border: 1px solid rgb(96, 96, 96);
+    color:black;
+    background-color: rgb(96, 96, 96);
+    text-decoration:none;
+    font-size: 10pt;
+}
+
+
+
+.add_station{
+    border: 1px solid rgb(0, 118, 45);   
+    color:black;
+    background-color: rgb(0, 118, 45);
+    text-decoration:none;
+    font-size: 10pt;
+}
+
+.add_idea{
+    border: 1px solid rgb(228,0,18);   
+    color:black;
+    background-color: rgb(228,0,18);
+    text-decoration:none;
+    font-size: 10pt;
+}
+
+.add_designstation{
+    border: 1px solid rgb(21,107,179);   
+    color:black;
+    background-color: rgb(21,107,179);
+    text-decoration:none;
+    font-size: 10pt;
+}
+
+.add_designbike{
+    border: 1px solid rgb(136,0,96);   
+    color:black;
+    background-color: rgb(136,0,96);
+    text-decoration:none;
+    font-size: 10pt;
+}
+
+
+
+
+
+.add:hover, .add2:hover, .back:hover
+{
+    border: 1px solid rgb(96, 96, 96);   
+    color:rgb(199, 199, 199);
+    background-color: rgb(254,200,48);
+    text-decoration:none;
+}
+
+
+
+body {
+    background-color:black;
+    font-family: Arial, Times, sans-serif;
+    color:rgb(199, 199, 199);
+}
+
+#frame
+{
+    margin: 0px auto;
+    width: 1000px;
+}
+
+#header
+{
+    padding-top:.25cm;
+    font-weight:bold;
+    font-size:22pt;
+    text-align:center;
+    height:40px;
+    margin-bottom:0px;
+}
+
+#intro
+{
+    float:left;
+    width:1000px;
+}
+
+
+#intro h1
+{
+    color:rgb(199, 199, 199);
+}
+
+
+#image
+{
+    margin-top:20px;
+    float:left;
+    width:500px;
+}
+
+#site
+{
+    float:right;
+    width:380px;
+    height:500px;
+}
+
+
+#news_box
+{
+    width:380px;
+    height:380px;
+    margin: 20px auto;
+    color: rgb(199, 199, 199);
+    opacity: 1;
+    overflow-y: auto;
+}
+
+
+#participate
+{
+    float:left;
+    width:1000px;
+//    background-color:white;
+}
+
+
+#place_station
+{
+    margin-left: 5px;
+    width:194px;
+    float: left;
+}
+
+#map_station
+{
+    width:194px;
+    height:140px;
+    float: left;
+    margin-bottom:10px;
+}
+
+#companies, #ideas, #bike, #space
+{
+    width:194px;
+    float: left;
+    margin-left: 5px;
+}
+
+#footer
+{
+    font-size:10pt;
+    clear: both;
+    padding-top: 1em;
+    text-align:center;
+    height:50px;
+}
+
+#login
+{
+    font-family: Arial, Times, sans-serif;
+    font-size:10pt;
+}
+
+a
+{
+    color:rgb(96, 96, 96);
+}
+
+
+#form_station{
+    float: left;
+    margin-left: 50px;
+}
+
+.stations{
+    margin-bottom: 4px;
+}
+
+.stationsdetails{
+    font-size: 8pt;
+}
+
+
+
+h1 {
+    font-weight:bold;
+    color: black;
+    font-size:15pt;
+    text-align:center;
+}
+
+h2 {
+    font-weight:bold;
+    font-size:10pt;
+    text-align:center;
+}
+
+p, ul, ol
+{
+    font-size:10pt;
+}
+
+
+#place_station>h1
+{
+    background-color:rgb(0, 118, 45);
+}
+
+#space>h1
+{
+    background-color:rgb(21,107,179);
+}
+
+#bike>h1
+{
+    background-color:rgb(136,0,96);
+}
+
+
+#ideas>h1
+{
+    background-color:rgb(228,0,18);
+}
+
+#companies>h1
+{
+    background-color:rgb(254,200,48);
+}
+
+.people{
+    font-weight:bold;
+}
+
+#map_canvas{
+    float: left;
+    margin-top: 10px;
+    width:500px;
+    height:600px;
+    margin-right:20px;
+}
+
+#ajax{
+    height:600px;
+    overflow-y: auto;
+}
+
+#licence > li
+{
+    font-size:10pt;
+    font-weight:bold;
+}
+
+.list_a
+{
+    font-size:10pt;
+    list-style-type: lower-alpha;
+}
+
+.station_contributor_agreement >p
+{
+    font-size:7pt;
+}
+
+
+.design_contributor_agreement
+{
+    width:600px;
+    float:left;
+    margin-bottom:20px;
+    margin-top:20px;
+}
+
+.design_contributor_agreement >p
+{
+    font-size:7pt;
+}

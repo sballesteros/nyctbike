@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block css %}
+<link rel="stylesheet" media="screen" type="text/css" title="Design espace" href="{{ MEDIA_URL }}css/form.css" />   
+<link rel="stylesheet" media="screen" type="text/css" title="Design espace" href="{{ MEDIA_URL }}css/user.css" />
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"> </script>
+<script type="text/javascript" src="{{ MEDIA_URL }}js/vote.js"> </script>
+
+<script type="text/javascript" src="{{ MEDIA_URL }}js/mapit.js"></script>
+<script type="text/javascript" src="{{ MEDIA_URL }}js/user_stations.js"></script>
+<script type="text/javascript" src="{{ MEDIA_URL }}js/get_involved.js"></script>
+
+{% endblock %}
+
+
+{% block content %}
+
+<h1>
+  Contributions by <span id="username_for_mapit">{{ myuser.username}}</span> 
+</h1>
+
+{% if myuser.get_profile.about %}
+About {{ myuser.username}}: {{ myuser.get_profile.about}}
+{% endif %}
+
+<p>
+  <div id="myactions">
+    <a class="add_station" href="/submitstation?next=/stations">Submit a stations</a>
+    <a class="add_designstation" href="/submitdesignstation?next=/designstations">Submit a station Design</a>
+    <a class="add_designbike" href="/submitdesignbike?next=/designbikes">Submit a bike Design</a>
+    <a class="add_idea" href="/submitidea?next=/ideas">Submit an idea</a>
+  </div>
+</p>
+
+
+<div class="line">
+
+  <div id="my_stations">
+    <h2><span class="myuser">{{ myuser.username}}</span>'s stations</h2>
+
+    <div id="map_canvas"></div>
+
+  </div>
+
+
+  <div id="my_ideas">
+    <h2><span class="myuser">{{ myuser.username}}</span>'s ideas</h2>
+
+
+    <div id="my_ideas_box">
+      {% for type, values in myIdeas.items  %}
+      {% for object in values  %}
+      {% include 'display.html' %}
+      {% endfor %}
+      {% endfor %}
+    </div>
+
+  </div>
+
+
+</div>
+
+<div class="line">
+
+  <div id="my_designstations">
+    <h2>Stations that <span class="myuser">{{ myuser.username}}</span> designed</h2>
+
+
+    <div id="my_designstations_box">
+      {% for type, values in myDesignStations.items  %}
+      {% for object in values  %}
+      {% include 'display.html' %}
+      {% endfor %}
+      {% endfor %}
+    </div>
+
+  </div>
+
+
+  <div id="my_designbikes">
+    <h2>Bikes design that <span class="myuser">{{ myuser.username}}</span> submitted</h2>
+
+    <div id="my_designbikes_box">
+      {% for type, values in myDesignBikes.items  %}
+      {% for object in values  %}
+      {% include 'display.html' %}
+      {% endfor %}
+      {% endfor %}
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block js %}
+
+{% endblock %}
+
+
+{% block css %}
+<link rel="stylesheet" media="screen" type="text/css" title="Design espace" href="{{ MEDIA_URL }}css/registration.css" />
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div id="gears">
+  <img src="{{ MEDIA_URL }}pict/gears.png" alt="bikes and butterflies"/>
+</div>
+
+<p class="registration">Register</p>
+
+{% if form.errors %} 
+<p class="errors">
+  Please correct the error{{ form.errors|pluralize }} below.
+</p>
+{% endif %}
+
+
+<form action="" method="post">{% csrf_token %}
+  {{form.as_p}}
+  <input type="submit" value="create the account">
+</form>
+
+
+{% endblock %}

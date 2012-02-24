@@ -1,0 +1,24 @@
+<div class="supports">
+
+<div class="supported">
+Supported idea:
+<a href="/idea?id={{support.supported.id}}"><span class="idea_supportedtitle">{{ support.supported.name }}</span></a>
+by: <a class="creator_supported" href="/user?username={{ support.supported.creator }}" title="see all contributions by: {{ support.supported.creator }}">{{ support.supported.creator }}</a><br/>
+
+
+Supported by: <a class="creator" href="/user?username={{ support.supporter }}" title="see all contributions by: {{ support.supporter }}">{{ support.supporter }}</a>
+on: {{ support.when }} <br/>
+for: <span class="amount">${{ support.amount }}</span>
+<input class="button_detail" id="details_{{support.id}}" type="button" value="see details" title="display details"> <!--type has to be button and not submit as the POST is done by ajax-->
+</div>
+
+
+<div class="content" id="content_{{support.id}}">
+
+<p>supporting details: {{ support.description|linebreaks }}</p>
+
+</div>
+
+</div>
+
+<br/>

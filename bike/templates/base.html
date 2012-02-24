@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" >
+  <head>
+
+    <title>NYCT Bike</title>
+
+    <meta name="description" content="Participative Bike-sharing system design for New York City" />
+    <meta name="keywords" content="Bike-sharing, New York, Manhattan, Bike, Social Network, Participative, Bicycle, Art, crowdsourcing" />
+    <meta name="author" content="Sebastien Ballesteros" />
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" media="screen" type="text/css" title="Design espace" href="{{ MEDIA_URL }}css/style_centered.css" />
+    <link rel="stylesheet" media="screen" type="text/css" title="Design espace" href="{{ MEDIA_URL }}css/vote.css" />
+    <link rel="stylesheet" media="screen" type="text/css" title="Design espace" href="{{ MEDIA_URL }}css/menu.css" />
+    <link rel="stylesheet" media="screen" type="text/css" title="Design espace" href="{{ MEDIA_URL }}css/idea_comment_station.css" />
+    <link rel="stylesheet" media="screen" type="text/css" title="Design espace" href="{{ MEDIA_URL }}css/form.css" />
+
+    {% block css %}
+
+    {% endblock %}
+
+
+    <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>-->
+    <script type="text/javascript" src="{{ MEDIA_URL }}js/ui/js/jquery-1.6.2.min.js"></script>
+    <script type="text/javascript">
+      var MEDIA_URL = "{{ MEDIA_URL }}";
+    </script>
+
+    <script type="text/javascript" src="{{ MEDIA_URL }}js/djangoajax.js"></script>
+
+    {% block js %}
+    {% endblock %}
+
+  </head>
+
+  <body>
+
+    <div id="frame">
+
+      <div id="header">
+	NYCT Bike, accelerating NYC bike history with swarm intelligence
+      </div>
+
+      {% block menu %}
+      <div id="navsite" class="clearfix">
+	<p>Site navigation:</p>
+	<ul>
+	  <li><a href="/" {% if current_menu == 'home' %} id="current" {% endif %} >Home</a></li>
+	  <li><a href="/stations" {% if current_menu == 'station' %} id="current" {% endif %}>Stations</a></li>
+	  <li><a href="/designstations" {% if current_menu == 'designstation' %} id="current" {% endif %}>Styling the space</a></li>
+	  <li><a href="/designbikes" {% if current_menu == 'designbike' %} id="current" {% endif %}>Ideal Bike</a></li>
+	  <li><a href="/ideas" {% if current_menu == 'idea' %} id="current" {% endif %}>Brainstorming</a></li>
+	  <li><a href="/supported" {% if current_menu == 'supported' %} id="current" {% endif %}>Make it real</a></li>
+	</ul>
+      </div>
+      {% endblock %}
+
+      {% block login %}
+
+      <div id="login">
+	{% if user.is_authenticated %}
+	welcome <a class="creator" href="/user?username={{ user.username }}">{{ user.username }}</a> | <a href="/profile/">profile</a> | <a href="/accounts/logout?next=/">logout</a>
+	{% else %}
+	You are not logged in <a href="/accounts/login?next=/">log in</a> | New member: <a href="/registration/register/">register</a>
+	{% endif %}
+      </div>
+
+      {% endblock %}
+
+
+      {% block content %}
+
+      {% endblock %}
+
+      <div id="footer">
+	NYCT Bike <img src="{{ MEDIA_URL }}pict/jenbike_FF.png" alt="bike logo" title=""/> | <a href="/about">About us</a> | <a href="mailto:team@nyctbike.com">Contact us</a> | <a href="/license">Terms of Service</a> | <a href="/donate">Donate</a>
+	
+      </div>
+      
+    </div>
+    
+  </body>
+  
+  
+</html>
+

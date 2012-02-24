@@ -1,0 +1,57 @@
+h1
+{
+    font-size:16pt;
+    margin-bottom:20px;
+    color: rgb(199, 199, 199);
+}
+
+h2{
+    margin-bottom:0px;
+}
+
+#frame
+{
+    margin: 0px auto;
+    width: 1000px;
+}
+
+
+.line{
+    float:left;
+    width:1000px;
+}
+
+
+#cat_maintenance, #cat_website
+{
+    border: 1px solid rgb(96,96,96);
+    float: left;
+    margin: 0px auto;
+    width: 480px;
+    height: 300px;
+    color: rgb(199, 199, 199);
+    opacity: 1;
+    margin-bottom:30px;
+}
+
+#cat_finance, #cat_other
+{
+    border: 1px solid rgb(96,96,96);
+    float: right;
+    margin: 0px auto;
+    width: 480px;
+    height: 300px;
+    color: rgb(199, 199, 199);
+    opacity: 1;
+    margin-bottom:30px;
+}
+
+#cat_maintenance_box, #cat_website_box, #cat_finance_box, #cat_other_box
+{
+    width:440px;
+    height:240px;
+    margin: 20px auto;
+    color: rgb(199, 199, 199);
+    opacity: 1;
+    overflow-y: auto;
+}

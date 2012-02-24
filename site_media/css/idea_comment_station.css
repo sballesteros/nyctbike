@@ -1,0 +1,109 @@
+.ideatitle, .stationtitle
+{
+    font-size: 12pt;
+    color: rgb(96, 96, 96);
+}
+
+.titlecomment{
+    color: rgb(96, 96, 96);
+}
+
+
+.ideatitle:hover, .stationtitle:hover, .titlecomment:hover
+{
+    color: rgb(96, 96, 96);
+    color:rgb(199, 199, 199);
+    background-color: rgb(254,200,48);
+}
+
+
+.creator{
+    color: rgb(96,96,96);
+    font-weight:bold;
+    font-size: 12pt;
+//    text-decoration:none;
+}
+.creator:hover
+{
+    border: 1px solid rgb(96, 96, 96);   
+    color:rgb(199, 199, 199);
+    background-color: rgb(254,200,48);
+    text-decoration:none;
+}
+
+
+.ideas{
+    width: 100%;    
+    color: rgb(199, 199, 199);
+    margin-bottom: 4px;
+}
+
+.ideasdetails, .stationsdetails, .ondate
+{
+    font-size: 8pt;
+    color: rgb(199, 199, 199);
+}
+
+
+
+.supported
+{
+    font-size: 8pt;
+    color: rgb(199, 199, 199);
+}
+
+
+.creator_supported{
+    color: rgb(136,0,96);
+    font-weight:bold;
+    font-size: 8pt;
+    text-decoration:none;
+}
+.creator_supported:hover
+{
+    border: 1px solid rgb(96, 96, 96);   
+    color:rgb(199, 199, 199);
+    background-color: rgb(254,200,48);
+    text-decoration:none;
+}
+
+
+
+.idea_supportedtitle
+{
+    font-size: 8pt;
+    color: rgb(96, 96, 96);
+}
+
+.idea_supportedtitle:hover
+{
+    color: rgb(96, 96, 96);
+    color:rgb(199, 199, 199);
+    background-color: rgb(254,200,48);
+}
+
+.amount
+{
+    color:rgb(199, 199, 199);
+    font-size: 12pt;
+}
+
+.button_detail{
+    display: none;
+    border: 1px solid rgb(96, 96, 96);   
+    font-size:6pt;
+}
+
+.button_detail:hover{
+    background-color: rgb(254,200,48);
+}
+
+.content{
+    display: none;
+}
+
+.pict
+{
+    margin-top: 10px;   
+}
+

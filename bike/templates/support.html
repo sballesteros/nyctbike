@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block css %}
+<link rel="stylesheet" media="screen" type="text/css" title="Design espace" href="{{ MEDIA_URL }}css/form.css" />   
+{% endblock %}
+
+
+{% block js %}
+
+{% endblock %}
+
+{% block content %}
+
+
+{% if form.errors %} 
+<p class="errors">
+  Please correct the error{{ form.errors|pluralize }} below.
+</p>
+{% endif %}
+
+<form action="" method="post">{% csrf_token %}
+  <input type="hidden" name="idobject" value={{ object.id }}>
+  <table>
+    <tr><th>Supporter:</th> <td>{{ me }}</td></tr>       
+    {% if object.name %}
+    <tr><th>For:</th> <td>{{ object.name }}</td></tr>       
+    {% else %}
+    <tr><th>Station:</th> <td>Lat:{{ object.lat }}, Lon:{{ object.lon }}</td></tr>       
+    {% endif %}
+    {{ form.as_table }}
+  </table>
+  <input type="submit" value="Submit">
+</form>
+
+
+{% endblock %}

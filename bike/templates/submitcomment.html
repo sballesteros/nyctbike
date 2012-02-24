@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load comments %}
+
+{% block css %}
+<link rel="stylesheet" media="screen" type="text/css" title="Design espace" href="{{ MEDIA_URL }}css/form.css" />   
+{% endblock %}
+
+
+{% block js %}
+
+{% endblock %}
+
+
+{% block content %}
+
+{% if what == 'station' %}
+<p> Comment for station: lat: {{ object.lat }}, lon: {{ object.lon }} </p>
+
+{% else %}
+<p> Comment for : {{ object.name }} </p>
+{% endif %}
+
+
+{% if form.errors %} 
+<p class="errors">
+  Please correct the error{{ form.errors|pluralize }} below.
+</p>
+{% endif %}
+
+
+{% get_comment_form for object as form %}
+<table>
+  <form action="{% comment_form_target %}" method="post">{% csrf_token %}
+    {{ form }}
+
+    <input type="hidden" name="next" value="/{{ what }}s?id={{ myid }}" />
+
+    <tr>
+      <td>
+	<!--<td colspan="2">-->
+	<input type="submit" name="submit" value="Post">
+	<!--<input type="submit" name="preview" value="Preview">-->
+      </td>
+    </tr>
+  </form>
+</table>
+
+{% endblock %}
